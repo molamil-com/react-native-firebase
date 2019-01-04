@@ -68,8 +68,9 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getTraceLongMetric(String identifier, String metricName, Promise promise) {
-    Integer value = Long.valueOf(getOrCreateTrace(identifier).getLongMetric(metricName)).intValue();
-    promise.resolve(value);
+    // Integer value = Long.valueOf(getOrCreateTrace(identifier).getLongMetric(metricName)).intValue();
+    // promise.resolve(value);
+    promise.resolve(0);
   }
 
   @ReactMethod
