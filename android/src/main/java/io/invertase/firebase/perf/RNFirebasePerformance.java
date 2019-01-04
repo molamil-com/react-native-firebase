@@ -47,7 +47,8 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getTraceAttribute(String identifier, String attribute, Promise promise) {
-    promise.resolve(getOrCreateTrace(identifier).getAttribute(attribute));
+    // promise.resolve(getOrCreateTrace(identifier).getAttribute(attribute));
+    promise.resolve(null);
   }
 
   @ReactMethod
