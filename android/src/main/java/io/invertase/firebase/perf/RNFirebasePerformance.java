@@ -53,6 +53,7 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getTraceAttributes(String identifier, Promise promise) {
+    /*
     Map<String, String> attributes = getOrCreateTrace(identifier).getAttributes();
     WritableMap map = Arguments.createMap();
 
@@ -61,6 +62,8 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
     }
 
     promise.resolve(map);
+    */
+    promise.resolve(null);
   }
 
   @ReactMethod
@@ -71,12 +74,13 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void incrementTraceMetric(String identifier, String metricName, Integer incrementBy, Promise promise) {
-    getOrCreateTrace(identifier).incrementMetric(metricName, incrementBy.longValue());
+    // getOrCreateTrace(identifier).incrementMetric(metricName, incrementBy.longValue());
     promise.resolve(null);
   }
 
   @ReactMethod
   public void putTraceAttribute(String identifier, String attribute, String value, Promise promise) {
+    /*
     getOrCreateTrace(identifier).putAttribute(attribute, value);
     // Docs say it returns a bool, actually void so we internally check attributes
     Map<String, String> attributes = getOrCreateTrace(identifier).getAttributes();
@@ -85,36 +89,38 @@ public class RNFirebasePerformance extends ReactContextBaseJavaModule {
     } else {
       promise.resolve(false);
     }
+    */
+    promise.resolve(false);
   }
 
   @ReactMethod
   public void putTraceMetric(String identifier, String metricName, Integer value, Promise promise) {
-    getOrCreateTrace(identifier).putMetric(metricName, value.longValue());
+    // getOrCreateTrace(identifier).putMetric(metricName, value.longValue());
     promise.resolve(null);
   }
 
   @ReactMethod
   public void removeTraceAttribute(String identifier, String attribute, Promise promise) {
-    getOrCreateTrace(identifier).removeAttribute(attribute);
+    // getOrCreateTrace(identifier).removeAttribute(attribute);
     promise.resolve(null);
   }
 
   @ReactMethod
   public void startTrace(String identifier, Promise promise) {
-    getOrCreateTrace(identifier).start();
+    // getOrCreateTrace(identifier).start();
     promise.resolve(null);
   }
 
   @ReactMethod
   public void stopTrace(String identifier, Promise promise) {
-    getOrCreateTrace(identifier).stop();
-    traces.remove(identifier);
+    // getOrCreateTrace(identifier).stop();
+    // traces.remove(identifier);
     promise.resolve(null);
   }
 
   @ReactMethod
   public void incrementCounter(String identifier, String event) {
-    getOrCreateTrace(identifier).incrementCounter(event);
+    // getOrCreateTrace(identifier).incrementCounter(event);
   }
 
   /**
