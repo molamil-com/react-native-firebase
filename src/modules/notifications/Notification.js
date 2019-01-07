@@ -51,15 +51,18 @@ export default class Notification {
       this._title = nativeNotification.title;
     }
 
-    this._android = new AndroidNotification(
-      this,
-      nativeNotification && nativeNotification.android
-    );
-    this._ios = new IOSNotification(
-      this,
-      notifications,
-      nativeNotification && nativeNotification.ios
-    );
+    if(Platform.OS === 'android'){
+      this._android = new AndroidNotification(
+        this,
+        nativeNotification && nativeNotification.android
+      );
+    } else if(Platform.OS === 'ios'){
+      this._ios = new IOSNotification(
+        this,
+        notifications,
+        nativeNotification && nativeNotification.ios
+      );
+    }
 
     // Defaults
     this._data = this._data || {};
